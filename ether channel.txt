@@ -1,0 +1,50 @@
+sw1
+en
+conf t
+interface range FastEthernet0/1 - 2
+channel-group 1 mode active
+interface port-channel 1
+switchport mode trunk
+switchport trunk allowed vlan 20,30,40,50
+switchport trunk native vlan 99
+channel-group 1 mode active
+no shutdown
+channel-group 1 mode desirable
+no sh
+exit
+interface range FastEthernet0/3 - 4
+channel-group 2 mode active
+interface port-channel 2
+switchport mode trunk
+switchport trunk allowed vlan 20,30,40,50
+switchport trunk native vlan 99
+channel-group 1 mode active
+no shutdown
+channel-group 2 mode desirable
+no sh
+exit
+sw2
+en
+conf t
+interface range FastEthernet0/1 - 2
+channel-group 1 mode active
+interface port-channel 1
+switchport mode trunk
+switchport trunk allowed vlan 20,30,40,50
+switchport trunk native vlan 99
+channel-group 1 mode active
+no shutdown
+channel-group 1 mode desirable
+no sh
+exit
+interface range FastEthernet0/3 - 4
+channel-group 1 mode active
+interface port-channel 1
+switchport mode trunk
+switchport trunk allowed vlan 20,30,40,50
+switchport trunk native vlan 99
+channel-group 1 mode active
+no shutdown
+channel-group 1 mode desirable
+no sh
+exit
