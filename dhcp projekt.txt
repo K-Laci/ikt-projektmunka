@@ -1,0 +1,20 @@
+r1
+en 
+conf t
+ip dhcp excluded-address 192.168.5.1 192.168.5.99
+ip dhcp pool pool1
+network 192.168.5.0 255.255.255.0
+dns-server 195.100.100.2
+default-router 192.168.5.1
+end
+service dhcp
+
+s2
+en
+conf t
+ip dhcp snooping
+int f0/24
+ip dhcp snooping trust
+dhcp snooping vlan 50,60
+interface range fa0/2 - 23
+ ip dhcp snooping limit rate 10

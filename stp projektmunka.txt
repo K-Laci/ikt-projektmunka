@@ -1,0 +1,24 @@
+s1
+en
+conf t
+int g0/0
+spanning-tree cost 1
+spanning-tree VLAN 1 root primary
+spanning-tree VLAN 1 priority 24576
+spanning-tree bpduguard enable
+spanning-tree bpduguard enable
+spanning-tree portfast
+spanning-tree portfast default
+spanning-tree bpduguard enable
+spanning-tree portfast bpduguard default
+exit
+spanning-tree mode rapid-pvst
+interface f0/2
+spanning-tree link-type point-to-point
+end
+clear spanning-tree detected-protocols
+
+s2
+en
+conf t
+spanning-tree VLAN 1 root secondary
